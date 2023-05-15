@@ -47,6 +47,45 @@
     }
 </style>
 <body>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <%
+               String emailError= request.getParameter("emailerror");
+               if(emailError!=null){
+            %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Email is busy!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <%
+                }
+            %>
+            <%
+                String passworderror = request.getParameter("passworderror");
+                if(passworderror!=null){
+            %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Password are not same!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <%
+                }
+            %>
+            <%
+                String success = request.getParameter("success");
+                if(success!=null){
+            %>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                User created successfully!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <%
+                }
+            %>
+        </div>
+    </div>
+</div>
 <div class="text-center" style="display: flex">
     <main class="form-signin w-100" style="margin-left: 12%; margin-top: -5%">
         <form action="/register" method="post">

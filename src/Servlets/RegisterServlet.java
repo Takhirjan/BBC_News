@@ -35,7 +35,11 @@ public class RegisterServlet extends HttpServlet {
 
         DBconnection.addUser(newUser);
         resp.sendRedirect("/register?success");
+      }else{
+        resp.sendRedirect("/register?passworderror");
       }
+    }else{
+      resp.sendRedirect("/register?emailerror");
     }
 
   }
