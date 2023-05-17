@@ -14,7 +14,7 @@ public class DBconnection {
   static{
     try{
       Class.forName("com.mysql.cj.jdbc.Driver");
-      connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/bbc_news",
+      connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/news",
           "root","");
     }catch (Exception e){
       e.printStackTrace();
@@ -96,5 +96,27 @@ public class DBconnection {
   }catch (Exception e){
     e.printStackTrace();
   }
+  }
+
+  public static News getNews(int id) {
+    News news=null;
+    try{
+      PreparedStatement statement= connection.prepareStatement(""+
+    "select n.id,n.title,n.content"+
+    " from news as n "+
+    "where n.id=?");
+    statement.setInt(1,id);
+    ResultSet resultSet=statement.executeQuery();
+    if(resultSet.next()){
+    news=new News();
+    news.setId(resultSet.getLong("id"));
+    news.setTitle(resultSet.getString("title"));
+    news.setContent(resultSet.getString("content"));
+    }
+    statement.close();
+    }catch (Exception e){
+      e.printStackTrace();
+    }
+    return news;
   }
 }
