@@ -82,4 +82,19 @@ public class DBconnection {
     }
     return news;
   }
+  public static void addNews(News news){
+  try{
+    PreparedStatement statement= connection.prepareStatement("" +
+        "insert into news(title,content,post_date)"+
+        "VALUES (?,?,NOW())");
+    statement.setString(1,news.getTitle());
+    statement.setString(2,news.getContent());
+//    statement.setLong(3,news.getUser().getId());
+    statement.executeUpdate();
+    statement.close();
+
+  }catch (Exception e){
+    e.printStackTrace();
+  }
+  }
 }

@@ -10,8 +10,6 @@ public class News {
   private Timestamp postdate;
 
 
-
-
   public News() {
     this.id = id;
     this.title = title;

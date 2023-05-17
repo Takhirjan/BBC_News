@@ -2,6 +2,7 @@ package Servlets;
 
 import DB.DBconnection;
 import Models.News;
+import Models.Users;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 public class ProfileServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    Users user= (Users) req.getSession().getAttribute("currentUser");
     ArrayList<News> news= DBconnection.getNews();
     req.setAttribute("news", news);
     req.getRequestDispatcher("/profile.jsp").forward(req,resp);
