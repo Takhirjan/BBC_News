@@ -33,7 +33,7 @@
                             <div class="btn-group">
                                 <a href="/details"><button type="button" class="btn btn-sm btn-success">View</button></a>
                                 <%
-                                    if(currentUser!=null){
+                                    if(currentUser!=null && currentUser.getRole_id()==1){
                                 %>
                                 <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
                                 <%

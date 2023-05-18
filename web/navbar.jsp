@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Title</title>
+    <%@include file="head.jsp"%>
 </head>
 <body>
 <%
@@ -30,7 +31,7 @@
                 <li><a href="#" class="nav-link px-2 text-white">Tech</a></li>
                 <li><a href="#" class="nav-link px-2 text-white">Science</a></li>
                 <%
-                    if(currentUser!=null){
+                    if(currentUser!=null && currentUser.getRole_id()==1){
                 %>
                 <button type="button" class="btn btn-light btn-sm"
                         data-bs-toggle="modal" data-bs-target="#addNews">Add News</button>
@@ -55,19 +56,19 @@
                     }
                 %>
             </ul>
-
                         <%
                             if(currentUser!=null){
                         %>
-            <div class="" style="display: flex;width: 30%">
+            <div style="display:inline-flex;width: 30%">
             <li class="nav-item dropdown" >
-                <a class="nav-link dropdown-toggle p-2" style="color: white;font-family: 'Bookman Old Style';
+                <a class="nav-link dropdown-toggle " style="color: white;font-family: 'Bookman Old Style';
                 font-size: 15px;margin-top: -10px" href="#"
                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <%=currentUser.getFull_name()%>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/logout"> Logout</a></li>
+                    <li><a class="dropdown-item" href="/editProfile.jsp"> Edit Profile</a></li>
                 </ul>
             </li>
                             <%
@@ -82,5 +83,8 @@
     </div>
     </div>
 </header>
+<%--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"--%>
+<%--        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>--%>
+
 </body>
 </html>

@@ -33,7 +33,7 @@ public class DBconnection {
         user.setFull_name(resultSet.getString("full_name"));
         user.setPassword(resultSet.getString("password"));
         user.setEmail(resultSet.getString("email"));
-//        user.setRole(resultSet.getInt("role_id"));
+        user.setRole_id(resultSet.getInt("role_id"));
 
       }
       statement.close();
@@ -98,25 +98,48 @@ public class DBconnection {
   }
   }
 
-  public static News getNews(int id) {
+  public static News getNews(Long id) {
     News news=null;
     try{
       PreparedStatement statement= connection.prepareStatement(""+
-    "select n.id,n.title,n.content"+
-    " from news as n "+
-    "where n.id=?");
-    statement.setInt(1,id);
+    "select n.id,n.title,n.content,n.post_date "+
+    "from news as n "+
+    "where n.id=? ");
+    statement.setLong(1,id);
     ResultSet resultSet=statement.executeQuery();
     if(resultSet.next()){
     news=new News();
     news.setId(resultSet.getLong("id"));
     news.setTitle(resultSet.getString("title"));
     news.setContent(resultSet.getString("content"));
+    news.setPostdate(resultSet.getTimestamp("post_date"));
     }
     statement.close();
     }catch (Exception e){
       e.printStackTrace();
     }
     return news;
+  }
+  public static void updateUser(Users users){
+        try{
+          PreparedStatement statement=connection.prepareStatement("" +
+              "update users "+
+              "set "+
+              " email = ?"+
+              " password =?"+
+              " full_name=? "+
+              "where id=?");
+
+          statement.setString(1, users.getEmail());
+          statement.setString(2,users.getPassword());
+          statement.setString(3,users.getFull_name());
+          statement.setLong(4,users.getId());
+
+          statement.executeUpdate();
+          statement.close();
+
+        }catch (Exception e){
+          e.printStackTrace();
+        }
   }
 }

@@ -5,6 +5,23 @@ public class Users {
   private String email;
   private String password;
   private String full_name;
+  private int role_id;
+
+  public int getRole_id() {
+    return role_id;
+  }
+
+  public void setRole_id(int role_id) {
+    this.role_id = role_id;
+  }
+
+  public Users(Long id, String email, String password, String full_name, int role_id) {
+    this.id = id;
+    this.email = email;
+    this.password = password;
+    this.full_name = full_name;
+    this.role_id = role_id;
+  }
 
   public Users(Long id, String email, String password, String full_name) {
     this.id = id;
