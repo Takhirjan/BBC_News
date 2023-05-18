@@ -47,26 +47,9 @@
     }
 </style>
 <body>
-<div class="container mt-3">
-    <div class="row">
-        <div class="col-6 mx-auto">
-            <%
-                String passwordEr=request.getParameter("error");
-                if(passwordEr!=null){
-            %>
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong> Incorrect password</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            <%
-                }
-            %>
-        </div>
-    </div>
-</div>
 <div class="text-center">
     <main class="form-signin w-100" style="margin-left: 12%;">
-        <form action="/update" method="POST">
+        <form action="/edit" method="POST">
             <img class="" src="bbc_news_logo-removebg-preview.png"
             style="width: 90%">
                 <h1 class="h3 mb-3 text-light" style="font-family: 'Book Antiqua';font-weight: bolder">Update your personal data!</h1>
@@ -74,10 +57,10 @@
                     <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput">Email address</label>
                 </div>
-            <div class="form-floating" style="width: 130%;margin-left: -10% ">
-                <input type="text" name="full_name" class="form-control" id="floatingText"
-                       placeholder="Insert your Full Name">
-                <label for="floatingPassword">Full Name</label>
+<%--            <div class="form-floating" style="width: 130%;margin-left: -10% ">--%>
+<%--                <input type="text" name="full_name" class="form-control" id="floatingText"--%>
+<%--                       placeholder="Insert your Full Name">--%>
+<%--                <label for="floatingPassword">Full Name</label>--%>
             </div>
                 <div class="form-floating" style="width: 130%;margin-left: -10% ">
                     <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">

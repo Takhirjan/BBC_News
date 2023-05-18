@@ -125,9 +125,9 @@ public class DBconnection {
           PreparedStatement statement=connection.prepareStatement("" +
               "update users "+
               "set "+
-              " email = ?"+
-              " password =?"+
-              " full_name=? "+
+              "email = ?,"+
+              "password =?,"+
+              "full_name=? "+
               "where id=?");
 
           statement.setString(1, users.getEmail());
