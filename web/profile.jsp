@@ -31,7 +31,7 @@
                         <p class="card-text"><%=n.getContent()%></p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <a href="/details"><button type="button" class="btn btn-sm btn-success">View</button></a>
+                                <a class="btn btn-success btn-sm" href="/details?news_id=<%=n.getId()%>">View</a>
                                 <%
                                     if(currentUser!=null && currentUser.getRole_id()==1){
                                 %>

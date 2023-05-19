@@ -98,7 +98,7 @@ public class DBconnection {
   }
   }
 
-  public static News getNews(Long id) {
+  public static News getNewsById(Long id) {
     News news=null;
     try{
       PreparedStatement statement= connection.prepareStatement(""+

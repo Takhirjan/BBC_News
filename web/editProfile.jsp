@@ -48,7 +48,7 @@
 </style>
 <body>
 <div class="text-center">
-    <main class="form-signin w-100" style="margin-left: 12%;">
+    <main class="form-signin w-100" style="margin-left: 37%">
         <form action="/edit" method="POST">
             <img class="" src="bbc_news_logo-removebg-preview.png"
             style="width: 90%">
@@ -57,11 +57,7 @@
                     <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput">Email address</label>
                 </div>
-<%--            <div class="form-floating" style="width: 130%;margin-left: -10% ">--%>
-<%--                <input type="text" name="full_name" class="form-control" id="floatingText"--%>
-<%--                       placeholder="Insert your Full Name">--%>
-<%--                <label for="floatingPassword">Full Name</label>--%>
-            </div>
+
                 <div class="form-floating" style="width: 130%;margin-left: -10% ">
                     <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
                     <label for="floatingPassword">Password</label>

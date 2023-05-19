@@ -14,8 +14,8 @@ public class DetailsServlet extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    Long id=Long.parseLong(req.getParameter("id"));
-    News news = DBconnection.getNews(id);
+    Long id= Long.parseLong(req.getParameter("news_id"));
+    News news = DBconnection.getNewsById(id);
     req.setAttribute("news_n",news);
     req.getRequestDispatcher("/details.jsp").forward(req,resp);
   }
