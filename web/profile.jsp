@@ -35,7 +35,54 @@
                                 <%
                                     if(currentUser!=null && currentUser.getRole_id()==1){
                                 %>
-                                <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary"
+                                            data-bs-toggle="modal" data-bs-target="#editNews">Edit</button>
+                <div class="modal fade" id="editNews" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header bg-danger">
+                                <h1 class="modal-title fst-italic text-light" style="font-size: 25px"
+                                    id="staticBackdropLabel">Edit News</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/save-news" method="post">
+                                    <input type="hidden" name="news_id" value="<%=n.getId()%>">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label>Title : </label>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-12">
+                                            <input type="text" class="form-control" name="title" value="<%=n.getTitle()%>">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12">
+                                            <label>Content : </label>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-12">
+                                            <textarea name="content" class="form-control" rows="5"><%=n.getContent()%>
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12">
+                                            <button class="btn btn-primary">SAVE </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                                 <%
                                     }
                                 %>

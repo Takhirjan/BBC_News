@@ -142,4 +142,33 @@ public class DBconnection {
           e.printStackTrace();
         }
   }
+  public static void updateNews(News news){
+    try{
+      PreparedStatement statement=connection.prepareStatement("" +
+          "update news "+
+          "set "+
+          "title = ?, "+
+          "content = ?"+
+          "where id=?");
+
+      statement.setString(1,news.getTitle());
+      statement.setString(2,news.getContent());
+      statement.setLong(3,news.getId());
+      statement.executeUpdate();
+      statement.close();
+    }catch (Exception e){
+      e.printStackTrace();
+    }
+  }
+  public static void deleteNews(Long id){
+    try{
+      PreparedStatement statement= connection.prepareStatement(""+
+          "DELETE FROM news WHERE id = ?");
+      statement.setLong(1,id);
+      statement.executeUpdate();
+      statement.close();
+    }catch (Exception e){
+      e.printStackTrace();
+    }
+  }
 }
